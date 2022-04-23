@@ -4,6 +4,8 @@
 
   animation: show 0.5s;
 
+  position: relative;
+
   @keyframes show {
     0% {
       opacity: 0;

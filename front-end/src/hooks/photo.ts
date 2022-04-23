@@ -1,4 +1,4 @@
-import { gql, useQuery } from '@apollo/client'
+import { gql, useMutation, useQuery } from '@apollo/client'
 
 export type Photo = {
   label: string
@@ -14,10 +14,23 @@ const GET_PHOTOS = gql`
   }
 `
 
+const ADD_PHOTO = gql`
+  mutation createPhoto($photo: AddPhotoDto!) {
+    addPhoto(photo: $photo) {
+      label
+      url
+    }
+  }
+`
+
 export const size = 18
 
 export const useFetchPhotos = ({ position }: { position: number }) => {
   return useQuery(GET_PHOTOS, {
     variables: { position, size },
   })
+}
+
+export const useAddPhoto = () => {
+  return useMutation(ADD_PHOTO)
 }
