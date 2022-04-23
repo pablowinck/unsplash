@@ -1,5 +1,17 @@
 # unsplash back-end
 
-<h4 align = "center">
+<h2 align = "center">
 unsplash challenge backend
-</h4>
+</h2>
+
+### how to build in linux
+```
+# up database image
+sudo docker-compose up
+
+# install dependencies
+yarn install
+
+# run
+yarn dev
+```
