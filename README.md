@@ -9,10 +9,4 @@
   <a href="https://github.com/pablowinck/gobarber/commits/master">
     <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/pablowinck/unsplash.svg">
   </a>
-  
-  <a href="https://github.com/pablowinck/gobarber/issues">
-    <img alt="Repository issues" src="https://img.shields.io/github/issues/pablowinck/unsplash.svg">
-  </a>
-  
-  <img alt="GitHub" src="https://img.shields.io/github/license/pablowinck/unsplash.svg">
 </p>
