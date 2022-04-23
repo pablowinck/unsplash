@@ -32,7 +32,7 @@ export class PhotoResolver {
       take: size,
     })
 
-    while (data.length === 0) {
+    if (data.length === 0) {
       data = await prisma.photo.findMany({
         take: size,
       })
