@@ -32,5 +32,7 @@ export const useFetchPhotos = ({ position }: { position: number }) => {
 }
 
 export const useAddPhoto = () => {
-  return useMutation(ADD_PHOTO)
+  return useMutation(ADD_PHOTO, {
+    refetchQueries: [GET_PHOTOS, 'getPhotos'],
+  })
 }

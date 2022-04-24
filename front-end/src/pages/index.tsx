@@ -1,27 +1,57 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Layout from '../components/Layout'
 import Photos from '../components/Photos'
-import { useFetchPhotos } from '../hooks/photo'
+import { Photo, useFetchPhotos } from '../hooks/photo'
 
 const Home: NextPage = () => {
   const [position, setPosition] = useState(0)
+  const [photos, setPhotos] = useState<Photo[]>([])
   const { data, loading } = useFetchPhotos({ position })
 
+  useEffect(() => {
+    console.log('photos', photos)
+  }, [photos])
+
+  useEffect(() => {
+    if (data?.photos) {
+      setPhotos((prev) => [...prev, ...data.photos])
+    }
+  }, [data])
+
+  useEffect(() => {
+    const { body } = document
+
+    const handleScroll = ({ target }: any) => {
+      const scroll = target.scrollTop
+      const max = Math.max(
+        document.body.scrollHeight,
+        document.documentElement.scrollHeight,
+        document.body.offsetHeight,
+        document.documentElement.offsetHeight,
+        document.body.clientHeight,
+        document.documentElement.clientHeight
+      )
+
+      if (max - scroll <= 1100) {
+        setPosition(position + 1)
+      }
+    }
+    body.addEventListener('scroll', handleScroll, false)
+    return () => body.removeEventListener('scroll', handleScroll)
+  }, [position])
   return (
     <div>
       <Head>
         <title>Unsplash</title>
         <link rel="icon" href="/logo.svg" />
       </Head>
-      {loading ? (
-        <h1>loading</h1>
-      ) : (
-        <Layout>
-          <Photos data={data.photos} />
-        </Layout>
-      )}
+      {/* {loading && } */}
+
+      <Layout>
+        <Photos data={photos} />
+      </Layout>
     </div>
   )
 }

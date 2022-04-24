@@ -1,15 +1,24 @@
 import React from 'react'
-import { Photo, size } from '../../hooks/photo'
+import { Photo } from '../../hooks/photo'
+import useMedia from '../../hooks/use-media'
+import PhotoItem from '../PhotoItem'
 import styles from './styles.module.scss'
 type Props = {
   data: Photo[]
 }
 
 const Photos: React.FC<Props> = ({ data }) => {
+  const columns = useMedia(
+    ['(min-width: 1400px)', '(min-width: 923px)', '(max-width: 922px)'],
+    [3, 2, 1],
+    3
+  )
+
   const divide = (value: Photo[]): Photo[][] => {
     var newData = []
     var i = 0
-    const toDivide = size / 3
+
+    const toDivide = Math.round(data.length / columns)
     while (i < value.length) {
       newData.push(value.slice(i, i + toDivide))
       i += toDivide
@@ -17,25 +26,15 @@ const Photos: React.FC<Props> = ({ data }) => {
     return newData
   }
   return (
-    <div className={styles.container}>
+    <div className={styles.container} id="photos">
       {divide(data).map((item, index) => (
         <div className={styles.container__column} key={index}>
-          {item.map(({ label, url }, index) => (
-            <div
-              className={styles.container__item}
-              style={{
-                backgroundImage: `url(${url})`,
-                height: `${Math.random() * (600 - 250) + 250}px`,
-              }}
-              key={label + index}
-            >
-              <p>{label}</p>
-            </div>
+          {item.map((photo, index) => (
+            <PhotoItem photo={photo} key={photo.label + index} />
           ))}
         </div>
       ))}
     </div>
   )
 }
-
 export default Photos

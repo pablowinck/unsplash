@@ -6,9 +6,10 @@ type Props = {
 }
 
 const AddPhoto: React.FC<Props> = ({ close }) => {
-  const [addTodo, { loading, error }] = useAddPhoto()
+  const [addTodo, { loading }] = useAddPhoto()
   const [label, setLabel] = useState('')
   const [url, setUrl] = useState('')
+
   return (
     <>
       <div className={styles.overlay} onClick={close}></div>
@@ -16,8 +17,7 @@ const AddPhoto: React.FC<Props> = ({ close }) => {
         <p className={styles.container__title}>Add a new photo</p>
 
         <form
-          onSubmit={(e) => {
-            e.preventDefault()
+          onSubmit={() => {
             addTodo({ variables: { photo: { label, url } } })
           }}
           className={styles.container__form}
