@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import Layout from '../components/Layout'
 import Loading from '../components/Loading'
 import Photos from '../components/Photos'
+import ScrollTop from '../components/ScrollTop'
 import { Photo, useFetchPhotos } from '../hooks/photo'
 
 const Home: NextPage = () => {
@@ -42,6 +43,7 @@ const Home: NextPage = () => {
     body.addEventListener('scroll', handleScroll, false)
     return () => body.removeEventListener('scroll', handleScroll)
   }, [position])
+
   return (
     <div>
       <Head>
@@ -49,7 +51,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/logo.svg" />
       </Head>
       {loading && <Loading />}
-
+      <ScrollTop />
       <Layout>
         <Photos data={photos} />
       </Layout>
