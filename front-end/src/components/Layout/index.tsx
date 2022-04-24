@@ -16,6 +16,7 @@ const Layout: React.FC<Props> = ({ children }) => {
       <div className={styles.header}>
         <div>
           <Image src="/favicon.svg" height={100} width={100} alt="Logo" />
+          {/* //!TODO #2 add searching */}
           <div className={styles.header__searchbar}>
             <AiOutlineSearch />
             <input type="text" placeholder="Search by name" />

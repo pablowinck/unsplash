@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
 import Layout from '../components/Layout'
+import Loading from '../components/Loading'
 import Photos from '../components/Photos'
 import { Photo, useFetchPhotos } from '../hooks/photo'
 
@@ -47,7 +48,7 @@ const Home: NextPage = () => {
         <title>Unsplash</title>
         <link rel="icon" href="/logo.svg" />
       </Head>
-      {/* {loading && } */}
+      {loading && <Loading />}
 
       <Layout>
         <Photos data={photos} />

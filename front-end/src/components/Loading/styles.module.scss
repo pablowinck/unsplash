@@ -1,0 +1,30 @@
+.container {
+  position: fixed;
+  bottom: 0;
+  height: 15vh;
+  width: 100%;
+
+  background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 1) 25%,
+    rgba(255, 255, 255, 0) 100%
+  );
+
+  z-index: 999;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  img {
+    width: 70px;
+    animation: rotate 0.4s linear infinite;
+    @keyframes rotate {
+      from {
+        transform: rotate(0);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  }
+}

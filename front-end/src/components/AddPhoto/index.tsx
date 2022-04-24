@@ -7,6 +7,8 @@ type Props = {
 
 const AddPhoto: React.FC<Props> = ({ close }) => {
   const [addTodo, { loading }] = useAddPhoto()
+
+  //!TODO #1 add validation
   const [label, setLabel] = useState('')
   const [url, setUrl] = useState('')
 

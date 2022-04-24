@@ -9,6 +9,7 @@ const PhotoItem: React.FC<Props> = ({ photo }) => {
   const [load, setLoad] = useState(false)
   const { label, url } = photo
 
+  //!TODO #3 fix small images bug
   return (
     <div
       className={styles.container}
