@@ -3,6 +3,11 @@
   grid-template-columns: repeat(auto-fit, max(25vw, 385px));
   grid-gap: 2.8125rem;
   place-content: center;
+
+  transition: 0.4s ease-in-out;
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fit, max(25vw, 300px));
+  }
 }
 
 .container__column {
