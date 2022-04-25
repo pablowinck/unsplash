@@ -11,6 +11,15 @@
   </a>
 </p>
 
+
+<h2 align="center"> <a href="https://www.youtube.com/watch?v=cBb3T7SjRbY">video preview</a> </h2>
+
+<h3 align="center">preview</h3>
+<img src="https://user-images.githubusercontent.com/70986781/165003571-633f9090-10f8-4d15-a668-0e941792cffa.png" />
+
+<h3 align="center">add photo preview</h3>
+<img src="https://user-images.githubusercontent.com/70986781/165003658-861be191-01a8-4936-8244-9bab496c825a.png" />
+
 <p align="center"><h2 align="center">important links</h2></p>
 
 <p align="center"><h3 align="center">figma</h3></p>
