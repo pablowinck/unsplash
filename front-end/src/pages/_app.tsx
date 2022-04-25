@@ -1,5 +1,6 @@
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
 import type { AppProps } from 'next/app'
+import SearchContextProvider from '../context/SearchContext'
 import '../styles/global.scss'
 
 const client = new ApolloClient({
@@ -10,7 +11,9 @@ const client = new ApolloClient({
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ApolloProvider client={client}>
-      <Component {...pageProps} />
+      <SearchContextProvider>
+        <Component {...pageProps} />
+      </SearchContextProvider>
     </ApolloProvider>
   )
 }

@@ -8,7 +8,7 @@ import ScrollTop from '../components/ScrollTop'
 import { Photo, useFetchPhotos } from '../hooks/photo'
 
 const Home: NextPage = () => {
-  const [position, setPosition] = useState(0)
+  const [position, setPosition] = useState<number>(0)
   const [photos, setPhotos] = useState<Photo[]>([])
   const { data, loading } = useFetchPhotos({ position })
 
